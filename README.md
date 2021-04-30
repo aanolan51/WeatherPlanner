@@ -1,4 +1,17 @@
 # WeatherPlanner
+## Description:
+This application is designed to pull current weather data for the city that was searched, as well as a five day forecast for that city. The searched city is saved as a button, and can be clicked on later to recall that city's weather data from the user's local storage. A clear button was added to clear out the search history. This application uses the open weather api, so I learned how to apply api calls to code functions, and how to use the data given in an api call to pull out what was needed for the application.
+
+## Usage
+To get your weather data, type in the name of the city you would like to search. The current day's data will populate, along with an icon showing you if the day is clear, cloudy, storming, etc. A five day forecast will also populate so you can get a quick snapshot of what the next five days will look like for planning out your week!
+The searched city will save to the page, so as you search other cities, just click on previous searches to pull that data back up. Clear out your search history with the clear button. Happy weather planning!
+
+Dashboard:
+![Screenshot of current weather](WeatherPlanner/Assets/Screenshot1.png)
+![Screenshot of the five day forecast](WeatherPlanner/Assets/screenshot2.png)
+
+Clicking on a previously saved city:
+![Weather of a previously searched city](WeatherPlanner/Assets/screenshot3.png)
 
 
 
