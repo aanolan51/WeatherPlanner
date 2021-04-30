@@ -1,0 +1,247 @@
+body{
+    font-family: 'Buda', cursive;
+}
+
+#header_text{
+    position: absolute;
+    font-family: 'Poiret One', cursive;
+    font-size: 8vw;
+    left: 15%;
+    top: 10%;
+    color: rgb(19, 20, 26);
+    text-shadow: 0px 4px 4px white;
+}
+
+.img_header{
+    position: relative;
+    width: 100%;
+    height:550px;
+}
+
+#credit_text{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 1vw;
+}
+
+
+#form_div{
+    display:flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    margin: 1%;
+}
+
+#form{
+    display: flex;
+    margin: 2%;
+}
+
+#searchBar{
+    display: flex;
+    font-size: 1.2vw;
+    margin: 2%;
+    padding: 0.5%;
+    font-family: 'Buda', cursive;
+}
+
+#searchButton{ 
+    display: flex;
+    font-size: 1.2vw;
+    margin: 5%;
+    margin-left: 10%;
+    padding: 0.6%;
+    background-color: rgb(242, 242, 248);
+    box-shadow: 0 3px 3px 0 #2b2d42;
+    font-family: 'Buda', cursive;
+}
+#searchButton:hover{
+    background-color: rgb(34, 28, 68);
+    color: rgb(201, 201, 209);  
+}
+
+.button_design{
+    font-size: 1.5vw;
+    margin-bottom: 2%;
+    border: thin dashed black;
+    background-color: rgb(242, 242, 248);
+    box-shadow: 0 3px 3px 0 #2b2d42;
+    font-family: 'Buda', cursive;
+}
+
+.button_design:hover{
+    background-image: url("./Assets/pexels-johannes-plenio-1118873-cropped-resized.jpg");
+}
+
+#buttons{
+    display:flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+#clear{
+    width: 50%;
+    padding: 1%;
+    margin-bottom: 3%;
+    margin-left: 6%;
+    font-size: 1vw;
+    border-radius: 5px;
+    background-color: rgb(242, 242, 248);
+    box-shadow: 0 3px 3px 0 #2b2d42; 
+    font-family: 'Buda', cursive;   
+}
+
+#clear:hover{
+    background-color: rgb(83, 27, 76);
+    color: rgb(201, 201, 209);    
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+#featuredCity{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+    margin: 1%;
+}
+
+#mainEmoji{
+    display: inline-block;
+    width: 10%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    border: 2px solid black;
+    background-color: white;
+    font-family: 'Buda', cursive;
+    font-size: 1.3vw;
+}
+
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#city{
+    display:inline-block;
+    font-family: 'Poiret One', cursive;
+    margin: 3%;
+    font-size: 2.5vw;
+}
+
+#weather_list{
+    list-style-type: none;
+}
+
+.main_list{
+    color:purple;
+    font-weight: bold;
+}
+
+#five_day_heading{
+    font-family: 'Poiret One', cursive;
+    margin: 2%;
+    font-size: 2vw;
+}
+
+#five_day_container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.five_day_cards{
+    display: flex;
+    flex-direction: column;
+    border: 4px solid black;
+    box-shadow: 0 10px 10px 0 #2b2d42;
+    margin: 1%;
+    width: 20%;
+    
+}
+
+.todays_date{
+    font-weight: bold;
+    font-size: 1.8vw;
+    margin: 5%;
+    text-align: center;
+}
+
+.emoji{
+    margin-left: 3%;
+    margin-bottom: 10%;
+    width: 40%;
+}
+
+.temp{
+    margin-left: 3%;
+    margin-bottom: 5%;
+    font-size: 1.2vw;
+
+}
+
+.humidity{
+    margin-left: 3%;
+    margin-bottom: 5%;
+    font-size: 1.2vw;
+}
+
+#uviListItem{
+    display: inline-block;
+    width: 9%;
+}
+
+#uviDIV{
+    display: inline-block;
+    width: 5%;
+}
+
+#low{
+    background-color: rgb(19, 90, 49);
+    display: inline-block;
+    width: 5%;
+    text-align: center;
+    border-radius: 5px;
+    color: rgb(201, 201, 209);
+}
+
+#moderate{
+    background-color: rgb(228, 207, 20);
+    display: inline-block;
+    width: 5%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#high{
+    background-color: rgb(117, 24, 12);
+    display: inline-block;
+    width: 5%;
+    text-align: center;
+    border-radius: 5px;
+    color: rgb(201, 201, 209);
+}
+
+#severe{
+    background-color: rgb(59, 13, 59);
+    display: inline-block;
+    width: 5%;
+    text-align: center;
+    border-radius: 5px;
+    color: rgb(201, 201, 209);
+}
+
+
+@media screen and (max-width: 768px) {
+    .img_header{
+        position: relative;
+        height:50%;
+    }
+}

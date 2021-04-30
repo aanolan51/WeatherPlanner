@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Monofett&family=Poiret+One&display=swap" 
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css" />
+    <title>Weather</title>
+</head>
+
+<body>
+    <header class = "img_header">
+        <img  class = "img_header" src="./Assets/pexels-johannes-plenio-1118873-cropped-resized.jpg" 
+        alt="Yellow and orange clear skies with a small island which fades into a storm with lightning strike">
+        <h1 id = "header_text">Weather Dashboard</h1>
+        <p id = "credit_text">Photo by Johannes Plenio from Pexels</p>
+    </header>
+
+    <div class = "container">
+
+        <div id ="form_div">
+            <form id = "form">
+                <div>
+                    <input type = "text" placeholder="City Name" id = "searchBar">
+                </div>
+                <div>
+                    <input type = "submit" value = "SEARCH" id = "searchButton">
+                </div>                 
+            </form>
+
+            <button type = "button" id = "clear">CLEAR SEARCH HISTORY</button>
+
+            <div id = "buttons">
+                
+            </div>
+        </div>
+        
+
+        <div id = "featuredCity">
+            <div class = "card">
+                <div class = "headerContainer">
+                    <h3 id = "city">TODAY'S WEATHER</h3>
+                    <img id = "mainEmoji">
+                </div>
+                
+                
+                <!--Create this list dynamically in JS!!-->
+                <ul id = "weather_list">
+                  <!--Dynamically created LI elements will go here-->
+                </ul>
+            </div> 
+            
+            <div class="card">
+                <h4 id = "five_day_heading">Five Day Forecast:</h4>
+                <div id = "five_day_container">
+                   <!--Dynamically created cards will go here-->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <p>
+        Made using https://openweathermap.org/api
+    </p>
+
+    
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src= "./script.js"></script>
+</body>
+</html>
