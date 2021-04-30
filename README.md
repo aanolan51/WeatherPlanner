@@ -7,11 +7,11 @@ To get your weather data, type in the name of the city you would like to search.
 The searched city will save to the page, so as you search other cities, just click on previous searches to pull that data back up. Clear out your search history with the clear button. Happy weather planning!
 
 Dashboard:
-![Screenshot of current weather](WeatherPlanner/Assets/Screenshot1.png)
-![Screenshot of the five day forecast](WeatherPlanner/Assets/screenshot2.png)
+![Screenshot of current weather](Assets/Screenshot1.png)
+![Screenshot of the five day forecast](Assets/screenshot2.png)
 
 Clicking on a previously saved city:
-![Weather of a previously searched city](WeatherPlanner/Assets/screenshot3.png)
+![Weather of a previously searched city](Assets/screenshot3.png)
 
 
 
