@@ -13,6 +13,8 @@ Dashboard:
 Clicking on a previously saved city:
 ![Weather of a previously searched city](Assets/screenshot3.png)
 
+Link: https://aanolan51.github.io/WeatherPlanner/
+
 
 
 ## Credits:
