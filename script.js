@@ -11,7 +11,8 @@ var clear = document.querySelector("#clear");
 
 //Use the moment function to create the current day:
 currentDay = now.format("(MMM DD, YYYY)");
-
+//Hide City data on start:
+document.querySelector("#featuredCity").style.display = "none";
 //Create the list items to the page for the current weather. 
 //Want these outsise the function so they aren't added multiple times and instead the ext content is just replaced.
 
@@ -69,7 +70,7 @@ currentDay = now.format("(MMM DD, YYYY)");
 //Create the function that will run on search button click:
 function searchSubmit(event) {
   event.preventDefault();
-  
+  document.querySelector("#featuredCity").style.display = "block";
 
   var searchInput = document.querySelector('#searchBar').value;
   //Use geocoding API to convert city name into coordinates:
@@ -277,6 +278,7 @@ parentButtonContainer.addEventListener('click', displaySaved);
 
 //e.target is the element we click on
 function displaySaved(e){
+    document.querySelector("#featuredCity").style.display = "block";
     // console.log("DISPLAYING!");
     //Filter out any clicks that may have originated on the parent element
     if(e.target !== e.currentTarget){

@@ -104,7 +104,7 @@ body{
 }
 
 #featuredCity{
-    display: flex;
+    display: block;
     flex-direction: column;
     flex-basis: 70%;
     margin: 1%;
