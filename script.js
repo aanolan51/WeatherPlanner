@@ -12,66 +12,64 @@ var clear = document.querySelector("#clear");
 //Use the moment function to create the current day:
 currentDay = now.format("(MMM DD, YYYY)");
 
-//Create and append the list items to the page for the current weather. 
+//Create the list items to the page for the current weather. 
 //Want these outsise the function so they aren't added multiple times and instead the ext content is just replaced.
-var ulElement = document.querySelector("#weather_list");
 
-var tempLI = document.createElement("li");
-tempLI.setAttribute("id", "tempListItem");
-ulElement.appendChild(tempLI);
+    var ulElement = document.querySelector("#weather_list");
 
-var humidLI = document.createElement("li");
-humidLI.setAttribute("id", "humidListItem");
-ulElement.append(humidLI); 
+    var tempLI = document.createElement("li");
+    tempLI.setAttribute("id", "tempListItem");
 
-var windLI = document.createElement("li");
-windLI.setAttribute("id", "windListItem");
-ulElement.appendChild(windLI);
+    var humidLI = document.createElement("li");
+    humidLI.setAttribute("id", "humidListItem");
 
-var uviLI = document.createElement("li");
-uviLI.setAttribute("id", "uviListItem");
-ulElement.appendChild(uviLI);
+    var windLI = document.createElement("li");
+    windLI.setAttribute("id", "windListItem");
 
-var uviDIV = document.createElement("div");
-uviDIV.setAttribute("id", "uviDIV");
-ulElement.append(uviDIV);
+    var uviLI = document.createElement("li");
+    uviLI.setAttribute("id", "uviListItem");
 
-//Create and append the five day forecast cards to the page:
-var fiveDayContainer = document.querySelector("#five_day_container");
+    var uviDIV = document.createElement("div");
+    uviDIV.setAttribute("id", "uviDIV");
 
-for(i=0; i < 5; i++){
-    var card_i = document.createElement("div");
-    card_i.setAttribute("id", "card"+i);
-    card_i.setAttribute("class", "five_day_cards");
-    fiveDayContainer.appendChild(card_i);
+    //Create and append the five day forecast cards to the page:
+    var fiveDayContainer = document.querySelector("#five_day_container");
 
-    var date_i = document.createElement("div");
-    date_i.setAttribute("id", "date"+i);
-    date_i.setAttribute("class", "todays_date");
-    card_i.appendChild(date_i);
+    for(i=0; i < 5; i++){
+        var card_i = document.createElement("div");
+        card_i.setAttribute("id", "card"+i);
+        card_i.setAttribute("class", "five_day_cards");
+        fiveDayContainer.appendChild(card_i);
 
-    var emoji_i = document.createElement("img");
-    emoji_i.setAttribute("id", "emo"+i);
-    emoji_i.setAttribute("class", "emoji");
-    card_i.appendChild(emoji_i);
+        var date_i = document.createElement("div");
+        date_i.setAttribute("id", "date"+i);
+        date_i.setAttribute("class", "todays_date");
+        card_i.appendChild(date_i);
 
-    var temp_i = document.createElement("div");
-    temp_i.setAttribute("id", "t"+i);
-    // console.log("ID");
-    // console.log(temp_i);
-    temp_i.setAttribute("class", "temp");
-    card_i.appendChild(temp_i);
+        var emoji_i = document.createElement("img");
+        emoji_i.setAttribute("id", "emo"+i);
+        emoji_i.setAttribute("class", "emoji");
+        card_i.appendChild(emoji_i);
 
-    var hum_i = document.createElement("div");
-    hum_i.setAttribute("id", "humi"+i);
-    hum_i.setAttribute("class", "humidity");
-    card_i.appendChild(hum_i);
-}
+        var temp_i = document.createElement("div");
+        temp_i.setAttribute("id", "t"+i);
+        // console.log("ID");
+        // console.log(temp_i);
+        temp_i.setAttribute("class", "temp");
+        card_i.appendChild(temp_i);
+
+        var hum_i = document.createElement("div");
+        hum_i.setAttribute("id", "humi"+i);
+        hum_i.setAttribute("class", "humidity");
+        card_i.appendChild(hum_i);
+    }
+
 
 
 //Create the function that will run on search button click:
 function searchSubmit(event) {
   event.preventDefault();
+  
 
   var searchInput = document.querySelector('#searchBar').value;
   //Use geocoding API to convert city name into coordinates:
@@ -94,6 +92,8 @@ function searchSubmit(event) {
           });
       }
   });
+
+  
 
   if(searchInput){
     //Set search bar back to default:
@@ -121,7 +121,7 @@ var getCurrentWeather = function(searchInput, lat, long){
             //    console.log(data.name);
             //    console.log(data.main.temp);
             //    console.log(data.wind.speed);
-            
+
                 //Create the date elements to be readable for the five day forecast:
                 var day_1 = data.daily[1].dt;
                 var time_milli_1 = day_1 * 1000;
@@ -180,26 +180,31 @@ function displayCurrentWeather(searchInput, array){
     document.querySelector("#mainEmoji").setAttribute("src", "https://openweathermap.org/img/wn/" + curEmoji + "@2x.png");
 
     //Create the temp variable and dynamically add it to the page:
-    var temp = "Temperature: " + array.current.temp + " °F";
+    let temp = "Temperature: " + array.current.temp + " °F";
     // console.log("TEMP!")
     // console.log(temp);
     tempLI.textContent = temp;
+    ulElement.appendChild(tempLI);
 
     //Create the humidity variable and dynamically append it to the page:
-    var humidity = "Humidity: " + array.current.humidity + "%";
+    let humidity = "Humidity: " + array.current.humidity + "%";
     // console.log(humidity);
     humidLI.textContent = humidity;
+    ulElement.append(humidLI); 
 
     //Create the wind variable and dynamically append it to the page:
-    var wind = "Wind Speed: " + array.current.wind_speed + " MPH";
+    let wind = "Wind Speed: " + array.current.wind_speed + " MPH";
     // console.log(wind);
     windLI.textContent = wind;
+    ulElement.appendChild(windLI);
 
     //Create the UV Index variable and append to the page:
-    var uvHeading = "UV Index: ";
+    let uvHeading = "UV Index: ";
     uviLI.textContent = uvHeading;
-    var uvi = array.current.uvi;
+    let uvi = array.current.uvi;
     uviDIV.textContent = uvi;
+    ulElement.appendChild(uviLI);
+    ulElement.append(uviDIV);
 
     //Create if statement to change UV background color based on severity:
     var uvIndex = array.current.uvi;
@@ -218,16 +223,16 @@ function displayCurrentWeather(searchInput, array){
 
     //Create the text content for the five day forecast cards:
     for(j=1, i=0; j<6, i <5; i++, j++){
-        var day_j = array.daily[j].dt; 
-        var emoj_j = array.daily[j].weather[0].icon;
-        var temperature_j =array.daily[j].temp.day;
-        var humid_j = array.daily[j].humidity;
+        let day_j = array.daily[j].dt; 
+        let emoj_j = array.daily[j].weather[0].icon;
+        let temperature_j =array.daily[j].temp.day;
+        let humid_j = array.daily[j].humidity;
 
         //Convert date to readable date:
-        var time_milli_j = day_j * 1000;
-        var date_obj_j = new Date(time_milli_j);
+        let time_milli_j = day_j * 1000;
+        let date_obj_j = new Date(time_milli_j);
         // console.log(date_obj_j);
-        var date_string = date_obj_j.toDateString();
+        let date_string = date_obj_j.toDateString();
         // console.log(date_string);
 
         //Convert weather ICON to an image using:
@@ -238,25 +243,6 @@ function displayCurrentWeather(searchInput, array){
         document.getElementById("t"+i).textContent = "Temperature: " + temperature_j +" °F";
         document.getElementById("humi"+i).textContent = "Humidity: " + humid_j + "%";
     }
-
-    //------------------WORKING BUT NOT DYNAMIC--------------------//
-    // var temp = "Temperature: " + data.main.temp + " °F";
-    // console.log(temp);
-    // document.querySelector("#tempListItem").textContent = temp;
-
-    // //Create the humidity variable and dynamically append it to the page:
-    // var humidity = "Humidity: " + data.main.humidity + " %";
-    // document.querySelector("#humidityListItem").textContent = humidity;
-
-    // //Create the wind variable and dynamically append it to the page:
-    // var wind = "Wind Speed: " + data.wind.speed + " MPH";
-    // document.querySelector("#windListItem").textContent = wind;
-
-    //Create the UV variable and dynamically append it to the page:
-    //Create an IF statement to change the color!!!????
-    //WHERE IS THIS VARIABLE?!
-    // var UV = "UV Index: " + data.main.temp;
-    // document.querySelector("#uvListItem").textContent = UV;
 };
 
 //Create the button on search input:
@@ -309,25 +295,30 @@ function displaySaved(e){
                 document.querySelector("#mainEmoji").setAttribute("src", "https://openweathermap.org/img/wn/" + curEmoji + "@2x.png");
 
                 //Create the temp variable and dynamically add it to the page:
-                var temp = "Temperature: " + weather[j].temperature + " °F";
+                let temp = weather[j].temperature; 
                 tempLI.textContent = temp;
+                ulElement.appendChild(tempLI);
 
                 //Create the humidity variable and dynamically append it to the page:
-                var humidity = "Humidity: " + weather[j].humid + "%";
+                let humidity = weather[j].humid;
                 humidLI.textContent = humidity;
+                ulElement.append(humidLI); 
 
                 //Create the wind variable and dynamically append it to the page:
-                var wind = "Wind Speed: " + weather[j].windspd + " MPH";
+                let wind =weather[j].windspd;
                 windLI.textContent = wind;
+                ulElement.appendChild(windLI);
 
                 //Create the UV Index variable and append to the page:
-                var uvHeading = "UV Index: ";
+                let uvHeading = "UV Index: ";
                 uviLI.textContent = uvHeading;
-                var uvi = weather[j].UV;
+                let uvi = weather[j].UV;
                 uviDIV.textContent = uvi;
+                ulElement.appendChild(uviLI);
+                ulElement.append(uviDIV);
 
                  //Create if statement to change UV background color based on severity:
-                var uvIndex = weather[j].UV;
+                let uvIndex = weather[j].UV;
                 if(uvIndex <= 2){
                     uviDIV.setAttribute("id", "low");
                 }
@@ -345,10 +336,10 @@ function displaySaved(e){
                     //j is the index for the selected weather array object, and p is the index for the day object within that selected 
                     //weather array object. i is the iterations through each of the five card HTML elements that were created.
                     // console.log(weather[j][p]);
-                    var date_string_p = weather[j][p].date; 
-                    var emoj_p = weather[j][p].emoji;
-                    var temperature_p =weather[j][p].tempCard;
-                    var humid_p = weather[j][p].humidCard;
+                    let date_string_p = weather[j][p].date; 
+                    let emoj_p = weather[j][p].emoji;
+                    let temperature_p =weather[j][p].tempCard;
+                    let humid_p = weather[j][p].humidCard;
             
                     document.getElementById("date"+i).textContent = date_string_p;
                     document.getElementById("emo"+i).setAttribute("src", "https://openweathermap.org/img/wn/" + emoj_p + "@2x.png");
